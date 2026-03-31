@@ -4,8 +4,9 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 
 
-// Logo Component - Uses the uploaded logo image
-const LOGO_URL = "https://i.ibb.co/849XkGh9/A-2.png";
+// Logo Component - Uses the local logo image
+const LOGO_URL = "/logo.png";
+const HERO_LOGO_URL = "/hero-logo.png";
 
 const Logo = ({ className = "w-72 h-auto", invert = false }: { className?: string; invert?: boolean }) => (
   <img
@@ -155,7 +156,7 @@ export default function Home() {
         <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
           {/* Logo */}
           <div className="mb-8 animate-fade-in-up opacity-0" style={{ animationDelay: "0.2s", animationFillMode: "forwards" }}>
-            <Logo className="w-80 md:w-96 h-auto" />
+            <img src={HERO_LOGO_URL} alt="Tres Gaviotas - Joyería oro 18k" className="w-80 md:w-96 h-auto mx-auto" />
           </div>
 
           <div className="flex items-center justify-center gap-3 mb-8 animate-fade-in-up opacity-0" style={{ animationDelay: "0.3s", animationFillMode: "forwards" }}>
