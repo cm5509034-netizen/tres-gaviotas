@@ -3,22 +3,16 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 
-// Seagull Logo Component - Three elegant seagulls in flight
-const SeagullLogo = ({ className = "w-56 h-32", invert = false }: { className?: string; invert?: boolean }) => (
-  <svg viewBox="0 0 320 180" className={`mx-auto ${className}`} fill="currentColor">
-    {/* First seagull (bottom left) - largest */}
-    <g className={invert ? "text-gray-500" : "text-gray-400"}>
-      <path d="M5 110 Q35 70 85 85 Q95 88 105 95 L100 100 Q85 92 70 92 Q40 95 25 115 L30 110 Q50 95 80 100 Q100 105 120 125 L115 125 Q90 115 65 118 Q35 125 10 150 L5 110Z" />
-    </g>
-    {/* Second seagull (top right) - medium */}
-    <g className={invert ? "text-gray-500" : "text-gray-400"}>
-      <path d="M175 25 Q200 0 240 15 Q252 20 265 30 L260 35 Q245 25 230 25 Q205 28 192 48 L197 43 Q215 30 242 38 Q262 45 280 65 L275 63 Q255 55 235 58 Q210 65 188 88 L175 25Z" />
-    </g>
-    {/* Third seagull (bottom right) - smallest */}
-    <g className={invert ? "text-gray-500" : "text-gray-400"}>
-      <path d="M220 95 Q238 75 268 85 Q278 88 290 96 L286 100 Q275 93 264 93 Q248 95 240 108 L243 104 Q255 94 275 100 Q290 106 305 120 L300 118 Q285 112 270 115 Q252 120 235 138 L220 95Z" />
-    </g>
-  </svg>
+
+// Logo Component - Uses the uploaded logo image
+const LOGO_URL = "https://i.ibb.co/849XkGh9/A-2.png";
+
+const Logo = ({ className = "w-72 h-auto", invert = false }: { className?: string; invert?: boolean }) => (
+  <img
+    src={LOGO_URL}
+    alt="Tres Gaviotas - Joyería oro 18k"
+    className={`mx-auto ${className} ${invert ? "brightness-0 invert opacity-70" : ""}`}
+  />
 );
 
 // Star sparkle decoration
@@ -108,9 +102,11 @@ export default function Home() {
       >
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
           <a href="#inicio" className="flex items-center gap-2">
-            <span className="font-display text-xl tracking-wider text-charcoal">
-              TRES GAVIOTAS
-            </span>
+            <img
+              src={LOGO_URL}
+              alt="Tres Gaviotas"
+              className="h-14 w-auto"
+            />
           </a>
 
           <div className="hidden md:flex items-center gap-10">
@@ -159,14 +155,10 @@ export default function Home() {
         <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
           {/* Logo */}
           <div className="mb-8 animate-fade-in-up opacity-0" style={{ animationDelay: "0.2s", animationFillMode: "forwards" }}>
-            <SeagullLogo />
+            <Logo className="w-80 md:w-96 h-auto" />
           </div>
 
-          <h1 className="font-display text-5xl md:text-7xl lg:text-8xl tracking-wider text-charcoal mb-4 animate-fade-in-up opacity-0" style={{ animationDelay: "0.4s", animationFillMode: "forwards" }}>
-            TRES GAVIOTAS
-          </h1>
-
-          <div className="flex items-center justify-center gap-3 mb-8 animate-fade-in-up opacity-0" style={{ animationDelay: "0.5s", animationFillMode: "forwards" }}>
+          <div className="flex items-center justify-center gap-3 mb-8 animate-fade-in-up opacity-0" style={{ animationDelay: "0.3s", animationFillMode: "forwards" }}>
             <Sparkle className="text-gold/60" />
             <p className="font-body text-xl md:text-2xl tracking-[0.3em] text-gray-500 italic">
               Joyería oro 18k
@@ -174,12 +166,12 @@ export default function Home() {
             <Sparkle className="text-gold/60" />
           </div>
 
-          <p className="font-body text-lg md:text-xl text-charcoal/70 max-w-2xl mx-auto mb-12 leading-relaxed animate-fade-in-up opacity-0" style={{ animationDelay: "0.6s", animationFillMode: "forwards" }}>
+          <p className="font-body text-lg md:text-xl text-charcoal/70 max-w-2xl mx-auto mb-12 leading-relaxed animate-fade-in-up opacity-0" style={{ animationDelay: "0.4s", animationFillMode: "forwards" }}>
             Descubre piezas únicas de oro de 18 kilates, creadas con pasión y
             dedicación para quienes aprecian la verdadera elegancia.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up opacity-0" style={{ animationDelay: "0.7s", animationFillMode: "forwards" }}>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up opacity-0" style={{ animationDelay: "0.5s", animationFillMode: "forwards" }}>
             <Button
               asChild
               className="bg-[#1a1a1a] text-[#faf9f6] hover:bg-[#1a1a1a]/90 px-10 py-6 text-sm tracking-[0.2em] uppercase font-body transition-all duration-300 hover:shadow-xl"
@@ -493,10 +485,8 @@ export default function Home() {
           <div className="grid md:grid-cols-4 gap-12 mb-12">
             <div className="md:col-span-2">
               <div className="flex items-center gap-2 mb-6">
-                <SeagullLogo />
+                <Logo className="w-48 h-auto" invert={true} />
               </div>
-              <h3 className="font-display text-2xl mb-2">TRES GAVIOTAS</h3>
-              <p className="font-body text-white/60 italic mb-6">Joyería oro 18k</p>
               <p className="font-body text-white/60 leading-relaxed max-w-md">
                 Elegancia y distinción en cada pieza. Joyas de oro de 18 kilates
                 para quienes aprecian la belleza atemporal.
